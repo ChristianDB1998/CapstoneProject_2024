@@ -1,0 +1,87 @@
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+}
+
+.hero-item {
+    width: 30%;
+    padding: 20px;
+}
+
+.special {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border: 5px dotted blue; */
+}
+
+.special-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 ;
+    /* border: 5px solid #000; */
+    width: 60%;
+}
+
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-item > h1 {
+    margin: auto;
+}
+
+.testimonial-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 ;
+    /* border: 5px solid #000; */
+    width: 60%;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+}
+
+.about-item {
+    width: 30%;
+    padding: 20px;
+}
+
+.about-item:last-child {
+    position: relative;
+    border: 1px solid #000;
+    height: 400px;
+}
+
+.about-item > img {
+    position: absolute;
+}
+
+.image-one {
+    top: 50px;
+    right: 70px;
+    border: 2px solid #000;
+}
+
+.image-two {
+    top: 170px;
+    right: 190px;
+    z-index: 1;
+    border: 2px solid #ff0000;
+}
+
+
+
+
+
+

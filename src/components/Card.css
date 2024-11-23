@@ -1,0 +1,27 @@
+/* Shared Properties */
+.card {
+    border: 1px solid #000;
+    height: auto;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Special Card Styles */
+
+.special-card {
+    width: 250px;
+    box-shadow: #000;
+}
+
+
+
+
+/* Testimonial Card Styles */
+
+.testimonial-card {
+    width: 200px;
+}
