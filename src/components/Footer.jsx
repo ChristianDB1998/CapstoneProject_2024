@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Footer.css";
+import "./styles/Footer.css";
 
 const Footer = () => {
     return(
@@ -10,8 +10,8 @@ const Footer = () => {
                 <h3>Doormat Navigation</h3>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="">About</Link></li>
-                    <li><Link to="">Menu</Link></li>
+                    <li><Link to="#about">About</Link></li>
+                    <li><Link to="#menu">Menu</Link></li>
                     <li><Link to="/reservations">Reservations</Link></li>
                     <li><Link to="/order-online">Order Online</Link></li>
                     <li><Link to="/login">Login</Link></li>
@@ -20,7 +20,7 @@ const Footer = () => {
             <div className="footer-item">
                 <h3>Contact</h3>
                 <ul>
-                    <li><a href="https://maps.app.goo.gl/5kH6JAHkAMiDGUA77">Address</a></li>
+                    <li><a href="https://maps.app.goo.gl/5kH6JAHkAMiDGUA77" target="_blank" rel="noopener noreferrer">Address</a></li>
                     <li><a href="tel:+12462526574">Phone Number</a></li>
                     <li><a href="mailto:littlelemon@gmail.com">Email</a></li>
                 </ul>

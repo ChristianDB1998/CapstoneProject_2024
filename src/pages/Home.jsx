@@ -1,9 +1,9 @@
 import React from "react";
 import "./styles/Home.css";
 import Card from "../components/Card";
+import Button from "../components/Button";
 import SpecialData from "../data/special.";
 import TestimonialData from "../data/testimonial";
-
 
 
 const Home = () => {
@@ -15,7 +15,7 @@ const Home = () => {
                     <h1>Little Lemon</h1>
                     <span>Chicago</span>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis cupiditate modi sapiente ea quibusdam pariatur optio incidunt repellat iusto dolorum, ab expedita a amet harum ullam odit quia consequatur iste.</p>
-                    <button>Reserve A Table</button>
+                    <Button>Reserve A Table</Button>
                 </div>
                 <div className="hero-item">
                     <img src="/logo192.png" alt="hero"/>
@@ -24,7 +24,7 @@ const Home = () => {
             <section className="special" id="menu">
                     <div className="special-item">
                         <h2>Specials</h2>
-                        <button>Online Menu</button>
+                        <Button>Online Menu</Button>
                     </div>
                     <div className="special-item">
                         {SpecialData.map((card, index) => (
@@ -35,7 +35,6 @@ const Home = () => {
                                     title={card.title}
                                     price={card.price}
                                     description={card.description}
-                                    action="Order Online"
                                 />
                         ))}
                     </div>

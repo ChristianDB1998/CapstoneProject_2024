@@ -1,0 +1,27 @@
+.booking-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 60%;
+
+}
+
+input {
+    border-top: none;
+    border-right: none;
+}
+
+select {
+    border-top: none;
+    border-right: none;
+}
+
+.booking-item {
+    margin-top: 30px;
+}
+
+.booking-item label {
+    font-weight: bold;
+    margin-right: 16px;
+}

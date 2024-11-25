@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import "./styles/Card.css";
 
 const Card = ({type, ...props}) => {
 
@@ -14,7 +14,7 @@ const Card = ({type, ...props}) => {
                         <h1>{props.title}</h1>
                         <p>{props.price}</p>
                         <p>{props.description}</p>
-                        <button>{props.action}</button>
+                        <a href="order-online">Order Online</a>
                     </div>
                 ) : (
                     <div className="testimonial-content">
