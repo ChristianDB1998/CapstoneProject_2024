@@ -1,0 +1,16 @@
+.confirmBooking {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.confirmBooking-item {
+    margin-top: 16px;
+    font-weight: bold;
+}
+
+.confirmBooking h1 {
+    color: #458e25;
+}

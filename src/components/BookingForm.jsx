@@ -1,20 +1,29 @@
 import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
 import "./styles/BookingForm.css";
+import { submitAPI } from "../data/api";
+
 
 const BookingForm = ({availableTimes, dispatch}) => {
+
+    const navigate = useNavigate();
 
     const [date, setDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
     const [guest, setGuest] = useState('1');
     const [occasion, setOccasion] = useState('Birthday');
 
+
+    const handleDateChange = (e) => {
+        const selectedDate = e.target.value;
+        setDate(selectedDate);
+
+        // Dispatch an action to update available times
+        dispatch({ type: 'UPDATE_TIMES', payload: new Date(selectedDate) });
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        setDate('');
-        setSelectedTime('');
-        setGuest('1');
-        setOccasion('Birthday');
 
         const formData = {
             date,
@@ -22,19 +31,25 @@ const BookingForm = ({availableTimes, dispatch}) => {
             guest,
             occasion,
         };
+        
+        const isSubmitted = submitAPI(formData);
+
+        if(isSubmitted) { 
+        
+            setDate('');
+            setSelectedTime('');
+            setGuest('1');
+            setOccasion('Birthday');
+
+            navigate("/booking-confirmation", { state: { bookingDetails: formData } });
+        } else {  alert("Your submission was unsuccessful!"); }
+        
     
-        console.log('Form Submitted:', formData);
-
- 
+        // console.log('Form Submitted:', formData);
+            
     };
 
-    const handleDateChange = (e) => {
-        const selectedDate = e.target.value;
-        setDate(selectedDate);
-
-        // Dispatch an action to update available times
-        dispatch({ type: 'UPDATE_TIMES', payload: selectedDate });
-    };
+    
 
     return(
         <div className="booking-container">

@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { act } from 'react';
+// import { act } from 'react';
 import BookingForm from './components/BookingForm';
 import {initializeTimes, updateTimes} from './pages/Reservation';
 
@@ -21,7 +21,7 @@ it('should allow the user to submit the booking form', () => {
 
   render(
       <BookingForm
-          availableTimes={['10:00 AM', '11:00 AM', '12:00 PM']}
+          availableTimes={availableTimes}
           handleSubmit={handleSubmitMock} // Pass the mock function as prop
       />
   );

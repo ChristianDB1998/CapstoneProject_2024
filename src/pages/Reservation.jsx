@@ -1,20 +1,21 @@
 import React, {useReducer} from "react";
 import BookingForm from "../components/BookingForm";
+import {fetchAPI} from "../data/api";
 
-export const updateTimes = (state, action) => {
+const updateTimes = (state, action) => {
     switch (action.type) {
         case 'UPDATE_TIMES':
-            // For now, return the same times regardless of the action payload
-            return ['10:00 AM', '11:00 AM', '12:00 PM'];
+            return fetchAPI(action.payload); // Use the date from the dispatched action
         default:
             return state;
     }
 };
 
-export const initializeTimes = () => {
-    return ['10:00 AM', '11:00 AM', '12:00 PM'];
-};
 
+const initializeTimes = () => {
+    const today = new Date();
+    return fetchAPI(today);
+};
 
 const Reservation = () => {
 

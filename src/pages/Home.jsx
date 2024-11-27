@@ -2,7 +2,7 @@ import React from "react";
 import "./styles/Home.css";
 import Card from "../components/Card";
 import Button from "../components/Button";
-import SpecialData from "../data/special.";
+import SpecialData from "../data/special";
 import TestimonialData from "../data/testimonial";
 
 
