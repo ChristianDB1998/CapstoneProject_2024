@@ -11,7 +11,7 @@ const BookingForm = ({availableTimes, dispatch}) => {
     const [date, setDate] = useState('');
     const [selectedTime, setSelectedTime] = useState('');
     const [guest, setGuest] = useState('1');
-    const [occasion, setOccasion] = useState('Birthday');
+    const [occasion, setOccasion] = useState('Select');
 
 
     const handleDateChange = (e) => {
@@ -21,6 +21,45 @@ const BookingForm = ({availableTimes, dispatch}) => {
         // Dispatch an action to update available times
         dispatch({ type: 'UPDATE_TIMES', payload: new Date(selectedDate) });
     };
+
+    const validateForm = (formData) => {
+        const errorMessage = {
+            date: "Please select a date!",
+            selectedTime: "Please select a time!",
+            guest: "Please choose number of guests",
+            occasion: "Please select an occasion!"
+        }
+
+        let isValid = true;
+
+        //Check if the date is selected
+       if (!formData.date || formData.date === "") { 
+        document.getElementById("res-date-error").textContent = errorMessage.date;
+        isValid = false;
+       }
+
+
+        //Check if the time is selected
+       if (!formData.selectedTime || formData.selectedTime === "") {
+        document.getElementById("res-time-error").textContent = errorMessage.selectedTime;
+        isValid = false;
+       }
+
+        //Check if guest is selected
+       if (!formData.guest || formData.guest === "1") {
+        document.getElementById("guests-error").textContent = errorMessage.guest;
+        isValid = false;
+       }
+
+        //Check if occasion is selected
+        if (!formData.occasion || formData.occasion === "" || formData.occasion === "Select") { 
+            document.getElementById("occasion-error").textContent = errorMessage.occasion;
+            isValid = false;
+        }
+
+        return isValid;
+
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -32,24 +71,27 @@ const BookingForm = ({availableTimes, dispatch}) => {
             occasion,
         };
         
-        const isSubmitted = submitAPI(formData);
+        const isValidationValid = validateForm(formData);
 
-        if(isSubmitted) { 
-        
-            setDate('');
-            setSelectedTime('');
-            setGuest('1');
-            setOccasion('Birthday');
+        if(isValidationValid) { 
+            
+            const isSubmitted = submitAPI(formData);
+
+            if(isSubmitted) { 
+            
+                setDate('');
+                setSelectedTime('');
+                setGuest('1');
+                setOccasion('Birthday');
 
             navigate("/booking-confirmation", { state: { bookingDetails: formData } });
-        } else {  alert("Your submission was unsuccessful!"); }
-        
-    
+            } 
+            else 
+            {  alert("Your submission was unsuccessful!"); }
+        }
         // console.log('Form Submitted:', formData);
             
     };
-
-    
 
     return(
         <div className="booking-container">
@@ -64,10 +106,11 @@ const BookingForm = ({availableTimes, dispatch}) => {
                     value={date}
                     onChange={handleDateChange}
                     />
+                    <span id="res-date-error"></span>
                 </div>
 
                 <div className="booking-item">
-                    <label htmlFor="res-time">Choose Time</label>
+                    <label htmlFor="res-time" aria-label="Choose Time">Choose Time</label>
                     <select 
                         id="res-time"
                         value={selectedTime}
@@ -76,9 +119,10 @@ const BookingForm = ({availableTimes, dispatch}) => {
                                 <option key={index} value={availableTime}>{availableTime}</option>
                             )) : <option disabled>Error: Available times data is invalid!</option>}
                     </select>
+                    <span id="res-time-error"></span>
                 </div>
                 <div className="booking-item">
-                    <label htmlFor="guests">Number of guests</label>
+                    <label htmlFor="guests" aria-label="Number of guests">Number of guests</label>
                     <input 
                         type="number" 
                         placeholder="1" 
@@ -86,17 +130,21 @@ const BookingForm = ({availableTimes, dispatch}) => {
                         max="10" 
                         id="guests" 
                         value={guest}
-                        onChange={(e) => setGuest(e.target.value)}/>
+                        onChange={(e) => setGuest(e.target.value)}
+                        onBlur={(e) => validateForm()}/>
+                    <span id="guests-error"></span>
                 </div>
                 <div className="booking-item">
-                    <label htmlFor="occasion">Occasion</label>
+                    <label htmlFor="occasion" aria-label="Occasion">Occasion</label>
                     <select 
                         id="occasion"
                         value={occasion}
                         onChange={(e) => setOccasion(e.target.value)}>
+                        <option disabled>Select</option>
                         <option>Birthday</option>
                         <option>Anniversary</option>
                     </select>
+                    <span id="occasion-error"></span>
                 </div>
                 <div className="booking-item">
                     <input 
