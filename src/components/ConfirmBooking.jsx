@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 import "./styles/ConfirmBooking.css";
 
 
@@ -18,7 +19,7 @@ const ConfirmBooking = () => {
                     <p>Guests: {bookingDetails.guest}</p>
                     <p>Occasion: {bookingDetails.occasion}</p>
                     <p>Please remember this information before leaving this page.</p>
-                    <button onClick={() => navigate("/")}>Continue</button>
+                    <Button onClick={() => navigate("/")}>Continue</Button>
                 </div>
             )}
         </div>

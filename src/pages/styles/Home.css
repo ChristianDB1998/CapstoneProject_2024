@@ -2,18 +2,37 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: beige;
+    background-color: var(--primary-color-1);
 }
 
 .hero-item {
     width: 30%;
-    padding: 20px;
+    padding: 16px;
+    color: var(--highlight-color-1);
+}
+
+.hero-item p {
+    margin-top: 0.8rem;
+    
+}
+
+.hero-item button {
+    margin-top: 0.8rem;
+}
+
+
+
+.hero-item img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .special {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 16px 0;
     /* border: 5px dotted blue; */
 }
 
@@ -21,45 +40,44 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex: 1 1 ;
+    flex: 1;
+    width: 75%;
+    margin-top: 16px;
     /* border: 5px solid #000; */
-    width: 60%;
 }
+
+/* Testimonial Section */
 
 .testimonial {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 32px 0;
+    gap: 32px;
 }
 
-.testimonial-item > h1 {
-    margin: auto;
-}
+
 
 .testimonial-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex: 1 1 ;
-    /* border: 5px solid #000; */
-    width: 60%;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    gap: 16px;
-    padding: 16px;
-    scroll-behavior: smooth;
-    scrollbar-width: none;  /*For firefox browser*/
+    width: 75%;
+
 }
 
-.testimonial-item::-webkit-scrollbar {
-    display: none;
+.testimonial-item > h1 {
+   margin: 0 auto;
 }
 
+
+/* About Section */
 .about {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    background-color: beige;
+    background-color: var(--primary-color-2);
+    padding: 32px 0;
 }
 
 .about-item {
@@ -69,7 +87,6 @@
 
 .about-item:last-child {
     position: relative;
-    border: 1px solid #000;
     height: 400px;
 }
 
@@ -80,14 +97,25 @@
 .image-one {
     top: 50px;
     right: 70px;
-    border: 2px solid #000;
+    width: 300px;
+    transition: z-index 1s ease, transform 3s ease;
 }
 
 .image-two {
     top: 170px;
     right: 190px;
     z-index: 1;
-    border: 2px solid #ff0000;
+    width: 300px;
+    transition: transform 3s ease;
+}
+
+.image-one:hover {
+    z-index: 2;
+    transform: scale(1.5);
+}
+
+.image-two:hover {
+    transform: scale(1.5);
 }
 
 

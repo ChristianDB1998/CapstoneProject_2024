@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "./styles/BookingForm.css";
 import { submitAPI } from "../data/api";
+import Button from "./Button";
 
 
 const BookingForm = ({availableTimes, dispatch}) => {
@@ -94,66 +95,68 @@ const BookingForm = ({availableTimes, dispatch}) => {
     };
 
     return(
-        <div className="booking-container">
-            <h1>Book A Table</h1>
-            <form className="booking-form" onSubmit={handleSubmit}>
+        <>               
+            <div className="booking-header">
+                <h1>Book A Table</h1>
+            </div>
+            <div className="booking-main">
+ 
+                <form className="booking-form" onSubmit={handleSubmit}>
 
-                <div className="booking-item">
-                    <label htmlFor="res-date">Choose Date</label>
-                    <input 
-                    type="date" 
-                    id="res-date" 
-                    value={date}
-                    onChange={handleDateChange}
-                    />
-                    <span id="res-date-error"></span>
-                </div>
+                    <div className="form-item">
+                        <label htmlFor="res-date">Choose Date</label>
+                        <input 
+                        type="date" 
+                        id="res-date" 
+                        value={date}
+                        onChange={handleDateChange}
+                        />
+                        <span id="res-date-error"></span>
+                    </div>
 
-                <div className="booking-item">
-                    <label htmlFor="res-time" aria-label="Choose Time">Choose Time</label>
-                    <select 
-                        id="res-time"
-                        value={selectedTime}
-                        onChange={(e) => setSelectedTime(e.target.value)}>
-                            {Array.isArray(availableTimes) ? availableTimes.map((availableTime, index) => (
-                                <option key={index} value={availableTime}>{availableTime}</option>
-                            )) : <option disabled>Error: Available times data is invalid!</option>}
-                    </select>
-                    <span id="res-time-error"></span>
-                </div>
-                <div className="booking-item">
-                    <label htmlFor="guests" aria-label="Number of guests">Number of guests</label>
-                    <input 
-                        type="number" 
-                        placeholder="1" 
-                        min="1" 
-                        max="10" 
-                        id="guests" 
-                        value={guest}
-                        onChange={(e) => setGuest(e.target.value)}
-                        onBlur={(e) => validateForm()}/>
-                    <span id="guests-error"></span>
-                </div>
-                <div className="booking-item">
-                    <label htmlFor="occasion" aria-label="Occasion">Occasion</label>
-                    <select 
-                        id="occasion"
-                        value={occasion}
-                        onChange={(e) => setOccasion(e.target.value)}>
-                        <option disabled>Select</option>
-                        <option>Birthday</option>
-                        <option>Anniversary</option>
-                    </select>
-                    <span id="occasion-error"></span>
-                </div>
-                <div className="booking-item">
-                    <input 
-                        type="submit" 
-                        value="Make Your reservation" 
-                    />
-                </div>
-            </form>
-        </div>
+                    <div className="form-item">
+                        <label htmlFor="res-time" aria-label="Choose Time">Choose Time</label>
+                        <select 
+                            id="res-time"
+                            value={selectedTime}
+                            onChange={(e) => setSelectedTime(e.target.value)}>
+                                {Array.isArray(availableTimes) ? availableTimes.map((availableTime, index) => (
+                                    <option key={index} value={availableTime}>{availableTime}</option>
+                                )) : <option disabled>Error: Available times data is invalid!</option>}
+                        </select>
+                        <span id="res-time-error"></span>
+                    </div>
+                    <div className="form-item">
+                        <label htmlFor="guests" aria-label="Number of guests">Number of guests</label>
+                        <input 
+                            type="number" 
+                            placeholder="1" 
+                            min="1" 
+                            max="10" 
+                            id="guests" 
+                            value={guest}
+                            onChange={(e) => setGuest(e.target.value)}
+                            onBlur={(e) => validateForm()}/>
+                        <span id="guests-error"></span>
+                    </div>
+                    <div className="form-item">
+                        <label htmlFor="occasion" aria-label="Occasion">Occasion</label>
+                        <select 
+                            id="occasion"
+                            value={occasion}
+                            onChange={(e) => setOccasion(e.target.value)}>
+                            <option disabled>Select</option>
+                            <option>Birthday</option>
+                            <option>Anniversary</option>
+                        </select>
+                        <span id="occasion-error"></span>
+                    </div>
+                    <div className="form-item">
+                        <Button type="submit">Make Reservation</Button> 
+                    </div>
+                </form>
+            </div>
+        </>
     );
 
 }

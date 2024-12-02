@@ -1,13 +1,13 @@
 .header {    
     width: 100%;
     height: 5rem;
-    background-color: aqua;
+    background-color: var(--highlight-color-1);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.header > img {
+.header > a {
     margin-right: 20px;
 }
 
@@ -20,4 +20,19 @@
 .navbar-item {
     margin: 0 10px;
     text-decoration: none;
+    cursor: pointer;
+    color: var(--highlight-color-2);
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.5s ease;
+
 }
+
+.navbar-item.active{
+    color: red;
+}
+
+.navbar-item:hover {
+    border-bottom: 1px solid var(--highlight-color-2);
+
+}
+

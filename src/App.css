@@ -1,5 +1,42 @@
-* {
+:root {
+  --primary-color-1: #495e57;
+  --primary-color-2: #f4ce14;
+  --secondary-color-1: #ee9972;
+  --secondary-color-2: #fbdabb;
+  --highlight-color-1: #edefee;
+  --highlight-color-2: #333333;
+}
+
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Everything has the Karla by default */
+body {
+  font-family: "Karla", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2  {
+  font-size: 2rem;
+}
+
+/* Style Headlings  */
+h1, h2 h3, label{
+  font-family: "Markazi Text", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+
+

@@ -1,6 +1,6 @@
 /* Shared Properties */
 .card {
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     height: auto;
 }
 
@@ -13,8 +13,36 @@
 /* Special Card Styles */
 
 .special-card {
-    width: 250px;
-    box-shadow: #000;
+    width: 30%;
+    transition: box-shadow 0.5s ease;
+}
+
+.special-card:hover {
+    box-shadow: 5px 5px 5px #6e6e6e3e;
+}
+
+.special-content {
+    background-color: var(--highlight-color-1);
+}
+
+.special-content h3 {
+    margin-top: 12px;
+}
+
+.special-content p {
+    margin-top: 12px;
+}
+
+.special-content button {
+    margin-top: 16px;
+}
+
+.special-text-container {
+    padding: 24px;
+}
+
+.special-content button {
+    padding: 8px;
 }
 
 
@@ -22,14 +50,23 @@
 
 /* Testimonial Card Styles */
 
-.testimonial-card {
-    flex: 0 0 auto;
-    width: 200px;
-    height: 300px;
-    overflow-y: scroll;
-    scrollbar-width: none;
+.testimonial-content img {
+    width: 100px;
+    border-radius: 50%;
 }
 
-.testimonial-card::-webkit-scrollbar {
-    display: none;
+
+.testimonial-card {
+    width: 25%;
+    height: auto;
+    padding: 16px;
+    transition: box-shadow 1s ease;
+    background-color: var(--highlight-color-1);
 }
+
+.testimonial-card:hover {
+    box-shadow: 5px 5px 5px #6e6e6e3e;
+}
+
+
+

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {Link as ScrollLink } from "react-scroll";
 import "./styles/Footer.css";
 
 const Footer = () => {
@@ -10,8 +11,8 @@ const Footer = () => {
                 <h3>Doormat Navigation</h3>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="#about">About</Link></li>
-                    <li><Link to="#menu">Menu</Link></li>
+                    <li><ScrollLink to="about">About</ScrollLink></li>
+                    <li><ScrollLink to="menu">Menu</ScrollLink></li>
                     <li><Link to="/reservations">Reservations</Link></li>
                     <li><Link to="/order-online">Order Online</Link></li>
                     <li><Link to="/login">Login</Link></li>
