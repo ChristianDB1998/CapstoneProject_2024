@@ -68,5 +68,15 @@
     box-shadow: 5px 5px 5px #6e6e6e3e;
 }
 
+@media screen and (max-width: 500px) {
+    .card {
+        width: 75%;
+    }
+
+    .special-text-container {
+        padding: 1rem;
+    }
+}
+
 
 
