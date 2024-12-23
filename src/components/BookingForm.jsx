@@ -106,10 +106,10 @@ const BookingForm = ({availableTimes, dispatch}) => {
                     <div className="form-item">
                         <label htmlFor="res-date">Choose Date</label>
                         <input 
-                        type="date" 
-                        id="res-date" 
-                        value={date}
-                        onChange={handleDateChange}
+                            type="date" 
+                            id="res-date" 
+                            value={date}
+                            onChange={handleDateChange}
                         />
                         <span id="res-date-error"></span>
                     </div>
@@ -136,7 +136,8 @@ const BookingForm = ({availableTimes, dispatch}) => {
                             id="guests" 
                             value={guest}
                             onChange={(e) => setGuest(e.target.value)}
-                            onBlur={(e) => validateForm()}/>
+                            // onBlur={(e) => validateForm()}
+                            />
                         <span id="guests-error"></span>
                     </div>
                     <div className="form-item">
